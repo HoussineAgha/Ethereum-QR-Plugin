@@ -1,4 +1,4 @@
-import web3, { utils, Web3, Web3Context, Web3PluginBase  } from "web3";
+import  { utils, Web3Context, Web3PluginBase  } from "web3";
 import jsQR from "jsqr";
 import QRCode from "qrcode";
 import { createCanvas, loadImage } from "canvas";
@@ -124,7 +124,7 @@ export class QrPlugin extends Web3PluginBase {
     //Check data after generate uri for metamask
     const transactionParameters: ITransactionData = {
       to: to,
-      value: Web3.utils.toWei(value, 'ether'),
+      value: utils.toWei(value, 'ether'),
       gas: gas ? gas.toString() : '21000',
       gasPrice: gasPrice,
       data: data || '',
