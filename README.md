@@ -232,4 +232,3 @@ This plugin leverages the following libraries:
 ## Support
 
 For any questions or issues, please open an issue on the GitHub repository.
-```
