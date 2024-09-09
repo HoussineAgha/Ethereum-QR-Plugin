@@ -1,4 +1,4 @@
-import  { utils, Web3Context, Web3PluginBase  } from "web3";
+import { utils, Web3Context, Web3PluginBase  } from "web3";
 import jsQR from "jsqr";
 import QRCode from "qrcode";
 import { createCanvas, loadImage } from "canvas";
@@ -288,6 +288,8 @@ export class QrPlugin extends Web3PluginBase {
       throw error;
     }
   }
+
+
 
   public link(parentContext: Web3Context) {
     super.link(parentContext);

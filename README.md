@@ -1,6 +1,6 @@
-# Ethereum QR Plugin
+# Web3 Plugin Qr
 
-The Ethereum QR Plugin is a versatile and easy-to-use plugin for generating and reading QR codes for Ethereum wallet addresses and transactions. This plugin is designed to integrate seamlessly with `web3.js`, or it can be used as a standalone module in your JavaScript/TypeScript projects. It supports the EIP-681 standard for encoding transaction requests into QR codes.
+Web3 Plugin Qr is a versatile and easy-to-use plugin for generating and reading QR codes for Ethereum wallet addresses and transactions. This plugin is designed to integrate seamlessly with `web3.js`, or it can be used as a standalone module in your JavaScript/TypeScript projects. It supports the EIP-681 standard for encoding transaction requests into QR codes.
 
 ## Features
 
@@ -16,7 +16,7 @@ The Ethereum QR Plugin is a versatile and easy-to-use plugin for generating and 
 Install the plugin via npm:
 
 ```bash
-npm install ethereum-qr-plugin
+npm install web3-plugin-qr
 ```
 
 This will automatically install all required dependencies, including `web3`, `jsqr`, `qrcode`, `canvas`, and `web3-validator`.
@@ -33,10 +33,16 @@ This method integrates the plugin directly with `web3`, making it a part of the 
 
 ```typescript
 import Web3 from 'web3';
-import { QrPlugin } from 'ethereum-qr-plugin';
+import { QrPlugin } from 'web3-plugin-qr';
 
 // Initialize Web3
 const web3 = new Web3('YOUR_PROVIDER_URL');  // Sepolia , Mainnet
+
+//register plugin
+const qrCodePlugin = new QrPlugin();
+const qr = web3.registerPlugin(qrCodePlugin);
+
+//Or You Can Use
 
 // Extend Web3 with the QR Plugin
 web3.extend({
@@ -124,7 +130,7 @@ This method allows you to use the plugin independently of `web3`.
 #### Example
 
 ```typescript
-import { QrPlugin } from 'ethereum-qr-plugin';
+import { QrPlugin } from 'web3-plugin-qr';
 
 // Create an instance of the plugin
 const qrPlugin = new QrPlugin();
@@ -213,7 +219,7 @@ All methods throw errors if something goes wrong (e.g., invalid Ethereum address
 
 ## Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/HoussineAgha/Ethereum-QR-Plugin/issues) if you have any questions or ideas.
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/HoussineAgha/web3-plugin-qr/issues) if you have any questions or ideas.
 
 ## License
 

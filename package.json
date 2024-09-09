@@ -1,7 +1,7 @@
 {
-  "name": "ethereum-qr-plugin",
+  "name": "web3-plugin-qr",
   "version": "1.0.0",
-  "description": "The Ethereum QR Plugin is a powerful and easy-to-use plugin for generating and reading QR codes for Ethereum wallet addresses. This plugin integrates seamlessly with `web3.js`, or it can be used as a standalone module in your JavaScript/TypeScript projects.",
+  "description": "Web3 Plugin Qr is a powerful and easy-to-use plugin for generating and reading QR codes for Ethereum wallet addresses. This plugin integrates seamlessly with `web3.js`, or it can be used as a standalone module in your JavaScript/TypeScript projects.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "homepage": "https://github.com/HoussineAgha/Ethereum-QR-Plugin.git#readme",
