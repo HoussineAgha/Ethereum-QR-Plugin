@@ -96,7 +96,7 @@ export class QrPlugin extends Web3PluginBase {
   ): Promise<string> {
 
 
-    const { to, value, gas, data, chainId  } = transactionData;
+    const { to, value, gas, data, chainId , nonce  } = transactionData;
 
     const gasPrice  = await this._requestManager.send({
       method: "eth_gasPrice",
@@ -109,6 +109,10 @@ export class QrPlugin extends Web3PluginBase {
       params:[]
     });
 
+    const getnonce = nonce ||  await this._requestManager.send({
+      method:'eth_getTransactionCount',
+      params:[to],
+    });
 
     // Validate the Ethereum address
     if (!this.isValidAddress(to)) {
@@ -124,6 +128,7 @@ export class QrPlugin extends Web3PluginBase {
     //Check data after generate uri for metamask
     const transactionParameters: ITransactionData = {
       to: to,
+      nonce: getnonce,
       value: utils.toWei(value, 'ether'),
       gas: gas ? gas.toString() : '21000',
       gasPrice: gasPrice,
@@ -133,6 +138,7 @@ export class QrPlugin extends Web3PluginBase {
 
     // Construct the deeplink URI
       const uri = `ethereum:${transactionParameters.to}@${getChainId}?value=${transactionParameters.value}`
+      + `${transactionParameters.nonce ? '&nonce=' + transactionParameters.nonce : ''}`;
        + `${transactionParameters.gas ? '&gas=' + transactionParameters.gas : ''}`
        + `${transactionParameters.gasPrice ? '&gasPrice=' + transactionParameters.gasPrice : ''}`
        + `${transactionParameters.data ? '&data=' + transactionParameters.data : ''}`;

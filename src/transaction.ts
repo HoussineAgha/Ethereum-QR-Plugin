@@ -5,6 +5,7 @@ export interface ITransactionData {
     gas?: string ;
     gasPrice?: string | bigint;
     data?: string | null;
+    nonce?:number | bigint;
   }
   
 export interface EthereumProvider {
